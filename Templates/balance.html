@@ -1,0 +1,129 @@
+{% extends "base.html"%}
+{% block title%}Balancing Equations{%endblock%}
+{% block content%}
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title></title>
+	<script language="javascript">
+		function ChangeColor()
+		{
+		document. getElementById('btn1'). style. backgroundColor = '#42F2E1';
+		document. getElementById('btn1').style.color = '#131313';
+		setTimeout("ChangeColor2()", 100);
+		o
+		}
+	</script>
+	<style>
+		  input[type=button], input[type=submit], input[type=reset] {
+		  	  font-size: 2rem;
+			  background-color: #131313;
+			  border: #42F2E1 0.125em solid;
+
+			  color: #42F2E1;
+			  padding: 15px 30px;
+			  text-decoration: none;
+			  /*margin: 4px 2px;*/
+			  cursor: pointer;
+			  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.15em currentColor;
+			  box-shadow: inset 0 0 0.5em 0 #42F2E1, 0 0 0.25em 0 #42F2E1;
+
+		}
+		
+		input::after{
+			content: "";
+			position: absolute;
+			background-color: #42F2E1;
+		}
+		input[type=text] {
+
+		  width: 20px;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  box-sizing: border-box;
+		  border: 3px solid #ccc;
+		  -webkit-transition: 0.5s;
+		  transition: 0.5s;
+		  outline: none;
+		}
+		
+		input, select, textarea {
+			color: #2CF2EA;
+		}
+		h1 {
+			color: #2CF2EA;
+		}
+		h2 {
+			color: #2CF2EA;
+		}
+		div {
+			color: #70E329
+		}
+
+		body,html {height:100%;overflow:hidden;}
+		/*	body {
+			  width: 100%;
+			  height: 100%;
+			  position: absolute;
+			  background: linear-gradient(to bottom, #6e529d 0%,#d97b93 100%);
+			}
+
+			
+			}
+*/
+	html { box-sizing: border-box; font-size: 10px; }
+	*, *:before, *:after { box-sizing: inherit; }
+	body, ul, li  { margin: 0; padding: 0; }
+	li { list-style: none; }
+	p, h1, h2, h3, h4, h5, h6 { margin-top: 0; }
+	a { text-decoration: none; }
+	input { border-style: none; background: transparent; outline: none; }
+	button { padding: 0; background: none; border: none; outline: none; }
+
+	body {
+	  -webkit-font-smoothing: antialiased;
+	  -moz-osx-font-smoothing: grayscale;
+	  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	  background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
+	}
+
+
+
+	$input-background: rgba(57, 63, 84, 0.8);
+	$input-text-inactive: #7881A1;
+	$input-text-active: #BFD2FF;
+
+	// gradient animation
+	@keyframes gradient { 
+	  0%{background-position:0 0}
+	  100%{background-position:100% 0}
+	}
+
+	</style>
+	</head>
+	<body>
+		<br>
+		<h1><b> &nbsp; &nbsp; Balancing Equations</b></h1>
+		<hr>
+		<br><br><br><br><br><br>
+		
+		<span>
+		<center><h2><b>Enter your equation</b></h2></center><br>
+		<div><center><font size="3"><i>eg. H2 + O2 = H2O</i></font></center></div>
+		</span>
+
+		<form action="/balance/result" method="POST">
+			<br>	<center><input style="font-size:13pt;width:500px;"  name="s" type="text"></center>
+			
+			<br>
+			<center><font size="3"><input type="submit" id="btn1" value="Balance"  
+				onmouseover="ChangeColor()"
+				onmouseout="document.getElementById('btn1').style.color='#131313'"></font></center>
+		</form>
+
+		<br><br><br><br><br><br>
+
+		<div align="center"><font size="4"  > Balanced equation >><b> {{result}}</b></font></div>
+	</body>
+	</html>
+{% endblock %}

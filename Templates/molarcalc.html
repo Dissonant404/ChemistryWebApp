@@ -1,0 +1,134 @@
+{% extends "base.html"%}
+{% block title%}Molar Calculation{%endblock%}
+{% block content%}
+	<!DOCTYPE html>
+	<html>
+	<head>
+	 <style>
+	 html { box-sizing: border-box; font-size: 10px; }
+	*, *:before, *:after { box-sizing: inherit; }
+	body, ul, li  { margin: 0; padding: 0; }
+	li { list-style: none; }
+	p, h1, h2, h3, h4, h5, h6 { margin-top: 0; }
+	a { text-decoration: none; }
+	input { border-style: none; background: transparent; outline: none; }
+	button { padding: 0; background: none; border: none; outline: none; }
+
+	body {
+	  -webkit-font-smoothing: antialiased;
+	  -moz-osx-font-smoothing: grayscale;
+	  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	  background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
+	}
+
+
+
+	$input-background: rgba(57, 63, 84, 0.8);
+	$input-text-inactive: #7881A1;
+	$input-text-active: #BFD2FF;
+
+	// gradient animation
+	@keyframes gradient { 
+	  0%{background-position:0 0}
+	  100%{background-position:100% 0}
+	}
+
+	.button {
+	  border: none;
+	  color: lightblue;
+	  padding: 16px 32px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+	  margin: 4px 2px;
+	  transition-duration: 0.4s;
+	  cursor: pointer;
+	}
+
+	.button1 {
+	  background-color: black; 
+	  color: #1BF2E0; 
+	  border: 2px solid #1BF2E0	;
+	}
+	.button1:hover {
+	  background-color: #1BF2E0;
+	  color: black;
+	}
+	/* Style the body */
+	body {
+	  font-family: Arial;
+	  margin: 0;
+	}
+
+	/* Header/Logo Title */
+	.header {
+	  padding: 60px;
+	  text-align: center;
+	  /*background: red;*/
+	  color: white;
+	  font-size: 30px;
+	  background-image: url('chemheader.jpg')
+	}
+	h1 {
+		color: #1BF2E0;
+
+	}
+
+
+
+	/* Page Content */
+	.content {padding:20px;}
+	/*<!--ul {
+	  list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	  overflow: hidden;
+	  background-color: #333;
+	}
+
+	li {
+	  float: left;
+	}
+
+	li a {
+	  display: block;
+	  color: white;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	}
+
+	li a:hover:not(.active) {
+	  background-color: #111;
+	}
+
+	.active {
+	  background-color: #4CAF50;-->
+	}*/
+	</style> 
+	</head>
+	<body>
+		
+
+	<div class="header">
+
+		  <h1><font size="10"><b> <br> Molar Calculations</b></font></h1>
+		  <br>
+		  <h3><font color="lightgreen" size="6">Select what you want to calculate to do below 👇</font></h3>
+		</div>
+	<br><br> 
+
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+	<button onclick="document.location='/molarcalc/mole'" class="button button1"><font color="#09FFF9">Mole</font></button>
+
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button onclick="document.location='/molarcalc/vol'" class="button button1"><font>Volume</font></button>
+
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button onclick="document.location='/molarcalc/conc'" class="button button1"><font >Concentration</font></button>
+
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button onclick="document.location='/molarcalc/nop'" class="button button1"><font >No. of particles</font></button>
+
+	</body>
+	</html>
+{%endblock%}

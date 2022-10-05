@@ -1,0 +1,148 @@
+{% extends "base.html"%}
+{% block title%}Molar Calculation{%endblock%}
+{% block content%}
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<style>
+
+	 h1 {
+
+			color: #2CF2EA;
+			font-size: 40px;
+		}
+	hr {
+		background-color: white;
+	}
+	input[type=Number] {
+
+		  width: 20px;
+		  padding: 2px 10px;
+		  margin: 8px 0;
+		  box-sizing: border-box;
+		  border: 3px solid #ccc;
+		  -webkit-transition: 0.5s;
+		  transition: 0.5s;
+		  outline: none;
+		}	
+
+	select {
+		color: #2CF2EA;
+		 background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
+		 height: 37px
+		 
+	}
+	option  {
+		
+		font-size: 14px;		
+		 background-color:black;
+	}
+	  input[type=button], input[type=submit], input[type=reset] {
+
+			  background-color: #131313;
+			  border: #42F2E1;
+			  color: #42F2E1	;
+			  padding: 10px 30px;
+			  text-decoration: none;
+			  /*margin: 4px 2px;*/
+			  cursor: pointer;
+			  position: left;
+		}
+	
+		input, select, textarea {
+			position: left;
+			color: #2CF2EA;
+		}
+
+
+		.topnav {
+		  overflow: hidden;
+		  background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
+
+		}
+
+		.topnav a {
+		  float: left;
+		  color: #1BF2E0;
+		  text-align: center;
+		  padding: 14px 16px;
+		  text-decoration: none;
+		  font-size: 17px;
+
+
+		}
+
+		.topnav a:hover {
+		  background-color: #1BF2E0;
+		  color: #000000;
+		}
+
+	</style>
+	</head>
+	<body>
+		
+	
+
+	<br><br>
+	<div class="topnav" >
+		  <a href="/molarcalc/mole"><font size="3">Mole</a>
+		  <a href="/molarcalc/vol"><font size="3">Volume</a>
+		  <a href="/molarcalc/conc"><font size="3">Concentration</a>
+		  <a href="/molarcalc/nop"><font size="3">Number of Particles</a>
+		</div>
+	<br><br>
+	&nbsp &nbsp<h1>&nbsp &nbsp Concentration</h1>
+	<hr>
+
+	<script>
+	function validateForm() {
+	  let x = document.getElementById('var1').value;
+	  let y = document.getElementById('var2').value;
+	  if (x == ""  || y=="")  {
+	    alert("Fields are not filled out");
+	    return false;
+	  }
+	  else
+	  	document.getElementById('concForm').submit();;
+	}
+	
+	</script>
+
+	<form action="/molarcalc/conc/result" method="POST" id="concForm">
+	
+		
+		&nbsp;&nbsp;<font color="#1DFFF3" size="4">Enter first value</font> &nbsp<input style="font-size:13pt;width:200px;" id="var1" name="var1" type="Number">
+		&nbsp <select name="option1">
+			<option>mole</option>
+			<option>Molar mass</option>
+			<option>Volume (dm^3)</option>
+			<option>Volume (cm^3)</option>
+			<option>conc (g/dm^3)</option>
+
+
+			</select>
+
+		<br><br>
+		&nbsp;&nbsp;<font color="#1DFFF3" size="4">Enter second value</font>&nbsp<input style="font-size:13pt;width:200px;" id="var2" name="var2" type="Number">
+		&nbsp <select name="option2">
+			<option>mole</option>
+			<option>Molar mass</option>
+			<option>Volume (dm^3)</option>
+			<option>Volume (cm^3)</option>
+			<option>conc (g/dm^3)</option>
+
+		</select>
+		<br><br>
+		<div>
+		&nbsp &nbsp<input type="button" value="Submit" onclick="validateForm()">
+		</div>
+
+	</form>
+	<br><br>
+	&nbsp &nbsp <font size="4" color="#61EB20"><i>{{eqn}}</i></font>
+	<br><br>
+	&nbsp &nbsp <font size="4" color="#61EB20">{{s}}{{res}} {{conc1}}</font>
+
+	</body>
+	</html>
+{% endblock %}

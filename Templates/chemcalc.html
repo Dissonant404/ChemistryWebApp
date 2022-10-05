@@ -1,0 +1,153 @@
+{% extends "base.html"%}
+{% block title%}Stoichiometry{%endblock%}
+{% block content%}
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title></title>
+	<style>
+	
+	h1 {
+
+			color: #2CF2EA;
+			font-size: 40px;
+		}
+	hr {
+		background-color: white;
+	}
+	input[type=Number] {
+
+		  width: 20px;
+		  padding: 2px 10px;
+		  margin: 8px 0;
+		  box-sizing: border-box;
+		  border: 3px solid #ccc;
+		  -webkit-transition: 0.5s;
+		  transition: 0.5s;
+		  outline: none;
+		}	
+	span {
+		color: #2CF2EA;
+	}
+	select {
+		color: #2CF2EA;
+		 background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
+		 height: 37px
+		 
+	}
+	option  {
+		
+		font-size: 14px;		
+		 background-color:black;
+	}
+	  input[type=button], input[type=submit], input[type=reset] {
+
+			  background-color: #131313;
+			  border: #42F2E1;
+			  color: #42F2E1	;
+			  padding: 10px 30px;
+			  text-decoration: none;
+			  /*margin: 4px 2px;*/
+			  cursor: pointer;
+			  position: left;
+		}
+	
+		input, select, textarea {
+			position: left;
+			color: #2CF2EA;
+		}
+
+
+
+	</style>
+	</head>
+	<body>
+		<br><br>
+		<h1><b><font color="#2CF2EA">&nbsp;&nbsp; Chemical Calculation</font></b></h1><hr><br>
+
+
+		<script>
+		function validateForm() {
+		  let x = document.getElementById('var1').value;
+		  let y = document.getElementById('var2').value;
+		  let z = document.getElementById('varproduct').value;
+
+		  if (x == ""  || y=="")  {
+		    alert("Fields are not filled out");
+		    return false;
+		  }
+		  else
+		  	document.getElementById('Stoichiometryform').submit();;
+		}
+		
+		</script>
+
+		<form action="/chemcalc/result" method="POST" id="Stoichiometryform">
+		&nbsp;&nbsp;<font size = "4"><span>&nbsp;&nbsp;Enter the mole of the limiting reagent <input style="font-size:13pt;width:200px;"  name="mole" type="Number"><br><br>
+		&nbsp<font size = "4"><span>&nbsp&nbsp Enter first value of the reagent <input style="font-size:13pt;width:200px;" id="var1"  name="var1" type="Number">
+		&nbsp;
+		<select name="option1" id="firstvalue">
+			<option>mass (g)</option>
+			<option>Molar mass</option>
+			<option>conc (mol/dm^3)</option>
+			<option>Volume (dm^3)</option>
+			<option>Volume (cm^3)</option>
+			<option>molar volume constant(24 dm^3)</option>
+			<option>number of particles</option>
+			<option>avogadro constant (6 x 10^23)</option>
+
+		</select>
+		<br><br>
+		&nbsp<font size = "4"><span>&nbsp&nbsp Enter second value of the reagent <input style="font-size:13pt;width:200px;" id="var2" name="var2" type="Number">
+		&nbsp;	
+		<select name="option2">
+			<option>mass (g)</option>
+			<option>Molar mass</option>
+			<option>conc (mol/dm^3)</option>
+			<option>Volume (dm^3)</option>
+			<option>Volume (cm^3)</option>
+			<option>molar volume constant(24 dm^3)</option>
+			<option>number of particles</option>
+			<option>avogadro constant (6 x 10^23)</option>
+
+		</select> <br><br><br>
+		&nbsp;&nbsp;<font size = "4"><span>&nbsp;&nbsp;Enter the mole of the product you want to work with <input style="font-size:13pt;width:200px;"  name="moleproduct" type="Number"><br><br>
+
+		&nbsp;&nbsp;<font size = "4"><span>&nbsp;&nbsp;Enter the value of the product <input style="font-size:13pt;width:200px;" id="varproduct" name="varproduct" type="Number">&nbsp;
+		<select name="optionproduct">
+			<option>mass (g)	</option>	
+			<option>Molar mass</option>
+			<option>conc (mol/dm^3)</option>
+			<option>Volume (dm^3)</option>
+			<option>Volume (cm^3)</option>
+			<option>molar volume constant(24 dm^3)</option>
+			<option>number of particles</option>
+			<option>avogadro constant (6 x 10^23)</option>
+		</select> 
+		<br><br>
+
+
+		
+
+	   &nbsp &nbsp<center><input type="button" value="Submit" onclick="validateForm()"></center>
+
+		<br><br>
+		<center><font size="4"  color="#61EB20">{{eqn}}<br>
+		{{s}}{{res}}<br><br>
+		{{mole}} {{s1}} {{moleproduct}} {{s2}}<br>
+		{{s3}} {{moleproduct}}{{s5}}{{mole}} {{s2}}<br>
+		{{res}} {{s1}} {{s9}}{{moleproduct}}{{s5}}{{mole}}{{s8}}{{s6}}{{res}} {{s2}}<br><br>
+		{{s4}} {{res1}}<br>
+		{{eqn1}}<br>
+		<b>{{s7}} {{finalres}} {{unit}}<br></font></center></b>
+		
+	
+
+
+		
+
+
+	</body>
+	</html>
+{% endblock %}
+	
